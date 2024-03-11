@@ -1,0 +1,50 @@
+{
+  "name": "web3-comment",
+  "version": "1.0.0",
+  "description": "web3 comment",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --watch",
+    "build": "rm -rf dist && cross-env NODE_ENV=production webpack --progress",
+    "lint": "eslint src",
+    "lint:create": "eslint --init"
+  },
+  "keywords": [
+    "web3",
+    "comment",
+    "chat"
+  ],
+  "author": {
+    "name": "Winter Yang",
+    "email": "aiyld@hotmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.19.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "nodemon-webpack-plugin": "^4.8.1",
+    "terser-webpack-plugin": "^5.3.9",
+    "uglify-js": "^3.17.4",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "safe-buffer": "^5.2.1",
+    "web3-eth": "^4.2.0",
+    "web3-eth-abi": "^4.1.2",
+    "web3-eth-accounts": "^4.0.6",
+    "web3-eth-contract": "^4.1.0",
+    "web3-utils": "^4.0.6"
+  }
+}
