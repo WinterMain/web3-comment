@@ -1,6 +1,7 @@
 import { format as dateFormat } from 'date-fns';
 import { getAddress, getLogo, getChain } from "~/core/chain";
 import { getLocale } from '~/core/locale';
+import Logo from '~/core/logo';
 
 export function getCommentDomStr(item) {
   // <!--<div class="discuss-from tag">${getLogo(item.chain)}<span class="chain-title">${getChain(item.chain).title()}</span></div>-->
@@ -31,6 +32,20 @@ export function getTitleAreaDom() {
   const div = document.createElement('div');
   div.className = 'discuss-title-area';
   div.innerHTML = `<div class="dt-title">${getLocale('totalTitle')}</div>`.replace('[num]', '<span class="total">0</span>')
+
+  return div;
+}
+
+export function getLogoAreaDom() {
+  const div = document.createElement('div');
+  div.className = 'discuss-logo-area';
+  div.innerHTML = `<div class="logo-stage">
+    <a href="https://winter100.com/" target="_blank" rel="noopener noreferrer"><img height="30" src="${Logo}"></a>
+    <div class="want-tip">
+      <span>${getLocale('wantCoin')}</span>
+      <a class="tag chain-logo" target="_blank" rel="noopener noreferrer" href="https://www.coinex.com/register?refer_code=bg8ch">${getLogo(52)}</a>
+    </div>
+  </div>`.replace('[num]', '<span class="total">0</span>')
 
   return div;
 }

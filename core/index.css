@@ -12,7 +12,14 @@
   --radius: 8px
 }
 
-.tag {
+.discuss-wrapper {
+  border: var(--line);
+  background-color: var(--bg-element);
+  border-radius: var(--radius);
+  font-family: "PingFang SC", PingFangSC-Regular, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
+}
+
+.discuss-wrapper .tag {
   color: var(--themeColor);
   font-size: 12px;
   background-color: var(--themeColorLevel1);
@@ -21,7 +28,7 @@
   border-radius: 5px
 }
 
-.dark {
+.discuss-wrapper.dark {
   --line-color: #363636;
   --line: 1px solid var(--line-color);
   --bg-color: #292929;
@@ -49,7 +56,7 @@
   }
 }
 
-.w-button {
+.discuss-wrapper .w-button {
   position: relative;
   padding: 8px 16px;
   background: var(--themeColor);
@@ -64,11 +71,11 @@
   color: white
 }
 
-.w-button:active,.w-button:hover {
+.discuss-wrapper .w-button:active,.w-button:hover {
   background: var(--themeColorLevel2)
 }
 
-.w-button[loading]::before,.w-button[loading="true"]::before {
+.discuss-wrapper .w-button[loading]::before,.w-button[loading="true"]::before {
   content: "";
   display: inline-block;
   width: 12px;
@@ -80,28 +87,12 @@
   animation: button-loading-spinner 1s ease infinite
 }
 
-.w-button[loading="false"]::before {
+.discuss-wrapper .w-button[loading="false"]::before {
   display: none !important
-}
-
-.discuss-wrapper {
-  border: var(--line);
-  background-color: var(--bg-element);
-  border-radius: var(--radius);
 }
 
 .discuss-wrapper p {
   margin: 0;
-}
-
-.discuss-wrapper .discuss-title-area .dt-title {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text-title);
-  padding-left: 20px;
-  border-top: var(--line);
-  border-bottom: var(--line);
-  padding: 10px 0px 10px 20px
 }
 
 .discuss-wrapper .discuss-comment {
@@ -324,11 +315,30 @@
   margin-right: 5px
 }
 
+.discuss-wrapper .discuss-title-area .dt-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-title);
+  padding-left: 20px;
+  border-top: var(--line);
+  padding: 10px 0px 10px 20px
+}
+
+.discuss-wrapper .discuss-list {
+  padding: 0;
+}
+
 .discuss-wrapper .discuss-list .discuss-item {
   border-bottom: var(--line);
-  margin-top: 20px;
-  padding: 0 20px;
-  padding-bottom: 20px
+  padding: 20px;
+}
+
+.discuss-wrapper .discuss-list .discuss-item:first-child {
+  border-top: var(--line);
+}
+
+.discuss-wrapper .discuss-list .discuss-item:last-child {
+  border-bottom: 0;
 }
 
 .discuss-wrapper .discuss-list .discuss-item .chain-logo {
@@ -402,15 +412,6 @@
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-children .discuss-user {
   font-size: 13px
-}
-
-.discuss-wrapper .discuss-list .discuss-item:first-child {
-  padding-bottom: 20px !important;
-}
-
-.discuss-wrapper .discuss-list .discuss-item:last-child {
-  padding-bottom: 0;
-  border-bottom: 0
 }
 
 .discuss-wrapper .discuss-list .discuss-empty {

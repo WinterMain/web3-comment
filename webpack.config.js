@@ -38,6 +38,7 @@ let config =  {
     new CopyWebpackPlugin({
       patterns: [
         { from: './core/index.html', to: "./index.html" },
+        { from: './core/index.css', to: "./index.css" },
       ],
     }),
   ],

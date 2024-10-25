@@ -8,7 +8,7 @@ import * as DomHelper from '~/model/dom';
 import { getLocale } from '~/core/locale';
 import { decrypt } from '~/model/secret';
 import MetaMaskSvg from '~/core/metamask';
-import { getCommentDomStr, getCommentsEmptyDomStr, getTitleAreaDom } from '~/core/helper';
+import { getCommentDomStr, getCommentsEmptyDomStr, getTitleAreaDom, getLogoAreaDom } from '~/core/helper';
 import { chainConfig, getLogo } from '~/core/chain';
 import { sliceString } from '~/model/utils'
 
@@ -30,11 +30,12 @@ export default class UI {
       if (!config.disableSubmit) {
         this.initSubmit();
       }
-      if (!config.disableTitleArea) {
-        this.initTitleArea();
-      }
       if (!config.disableCommentList) {
+        this.initTitleArea();
         this.initComments();
+      }
+      if(!config.disableLogo) {
+        this.initLogo();
       }
       this.initScript();
       if (typeof window.ethereum !== 'undefined') {
@@ -236,6 +237,18 @@ export default class UI {
       rootDom.appendChild(element)
     }
     config.onTitleAreaLoaded && config.onTitleAreaLoaded();
+  }
+
+  initLogo() {
+    const config = window.blockCommentOptions || {};
+    const rootDom = this.getRootDom();
+    const logoArea = DomHelper.getChildDom(rootDom, 'discuss-logo-area');
+    if (logoArea) {
+      return;
+    }
+    const element = getLogoAreaDom();
+    rootDom.appendChild(element)
+    config.onLogoLoaded && config.onLogoLoaded();
   }
 
   getCurrentArticle() {

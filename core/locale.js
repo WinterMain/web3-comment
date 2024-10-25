@@ -14,7 +14,7 @@ const allLang = {
     discussSubmitError: 'Failed to submit, please try again later!',
     discussComingSoon: 'Coming soon, stay tuned!',
     submitSuccessfully: 'Submit successfully',
-    totalTitle: '[num] comments in total',
+    totalTitle: '[num] comments',
     txhash: 'Tx hash: ',
     coinExChainTest: 'CoinEx(Testnet)',
     testnet: 'Testnet',
@@ -26,10 +26,11 @@ const allLang = {
     notSupportNetMsg: 'Your current MetaMask network is not currently supported, you can click the button below to switch or add a network.',
     noMetaMask: 'MetaMask not found',
     noMetaMaskMsg: 'Please enable MetaMask in the plugin, if not installed, click the button below to install',
-    goAndInstallMetaMask: 'Install MetaMask'
+    goAndInstallMetaMask: 'Install MetaMask',
+    wantCoin: 'Want coins? Click'
   },
   zh_Hans_CN: {
-    discussTip: '您的评论将提交至区块链中，开启Web3的大门。',
+    discussTip: '您的评论将提交至区块链中，评论永存，区块链见证。',
     discussInputTitle: "评论",
     discussInputName: "您的称呼",
     discussInputNameTip: "请输入称呼",
@@ -55,7 +56,8 @@ const allLang = {
     notSupportNetMsg: '您当前MetaMask的网络暂不支持，可以点击下面按钮切换或添加网络。',
     noMetaMask: '未找到MetaMask',
     noMetaMaskMsg: '请在插件中启用MetaMask，如未安装则可点击下面按钮去安装',
-    goAndInstallMetaMask: '去安装MetaMask'
+    goAndInstallMetaMask: '去安装MetaMask',
+    wantCoin: '没有币？点击'
   },
   zh_Hant_HK: {
     discussTip: '您的評論將提交至區塊鏈中，開啟Web3的大門。',
@@ -84,7 +86,8 @@ const allLang = {
     notSupportNetMsg: '您當前MetaMask的網絡暫不支持，可以點擊下面按鈕切換或添加網絡。',
     noMetaMask: '未找到MetaMask',
     noMetaMaskMsg: '請在插件中啟用MetaMask，如未安裝則可點擊下面按鈕去安裝',
-    goAndInstallMetaMask: '去安裝MetaMask'
+    goAndInstallMetaMask: '去安裝MetaMask',
+    wantCoin: '沒有幣？點擊'
   },
 };
 const defaultLang = 'zh_Hans_CN';
