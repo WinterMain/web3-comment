@@ -7,24 +7,24 @@
   --text-level1: #636363;
   --text-level2: #a09f9f;
   --themeColor: #ed3da1;
-  --themeColorLevel1: #ffe9f6;
-  --themeColorLevel2: #f065b4;
+  --themeColorLevel1: rgb(from var(--themeColor) r g b / .1);
+  --themeColorLevel2: rgb(from var(--themeColor) r g b / .8);
   --radius: 8px
 }
 
 .discuss-wrapper {
-  border: var(--line);
-  background-color: var(--bg-element);
-  border-radius: var(--radius);
   font-family: "PingFang SC", PingFangSC-Regular, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, Arial, sans-serif;
+  background-color: var(--bg-element);
+  border: var(--line);
+  border-radius: var(--radius);
 }
 
 .discuss-wrapper .tag {
-  color: var(--themeColor);
-  font-size: 12px;
-  background-color: var(--themeColorLevel1);
   display: inline-block;
   padding: 3px 10px;
+  font-size: 12px;
+  color: var(--themeColor);
+  background-color: var(--themeColorLevel1);
   border-radius: 5px
 }
 
@@ -37,38 +37,38 @@
   --text-level1: #b9b9b9;
   --themeColor: #ed3da1;
   --themeColorLevel1: #241b20;
+
   background-color: black;
-  background-image: url(/assets/img/star.png);
+  background-image: url("/assets/img/star.png");
   background-repeat: repeat
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .discuss-wrapper .discuss-submit .input-submit {
-      flex-direction: column
+    flex-direction: column
   }
 
   .discuss-wrapper .discuss-submit .input-submit button {
-      font-size: 14px !important;
-      min-width: 100px !important;
-      width: 100%;
-      margin-left: 0px !important;
-      margin-top: 10px
+    width: 100%;
+    min-width: 100px !important;
+    margin-top: 10px;
+    margin-left: 0 !important;
+    font-size: 14px !important
   }
 }
 
 .discuss-wrapper .w-button {
   position: relative;
+  display: inline-flex;
   padding: 8px 16px;
+  color: white;
+  cursor: pointer;
   background: var(--themeColor);
   border: none;
-  outline: none;
-  border-radius: 2px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 5px;
-  color: white
+  outline: none;
+  align-items: center;
+  justify-content: center
 }
 
 .discuss-wrapper .w-button:active,.w-button:hover {
@@ -76,15 +76,25 @@
 }
 
 .discuss-wrapper .w-button[loading]::before,.w-button[loading="true"]::before {
-  content: "";
   display: inline-block;
   width: 12px;
   height: 12px;
-  border: 3px solid transparent;
-  border-top-color: #ffffff;
-  border-radius: 50%;
   margin-right: 10px;
+  border: 3px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  content: "";
   animation: button-loading-spinner 1s ease infinite
+}
+
+@keyframes button-loading-spinner {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .discuss-wrapper .w-button[loading="false"]::before {
@@ -96,45 +106,42 @@
 }
 
 .discuss-wrapper .discuss-comment {
-  color: var(--text-title);
-  font-size: 15px
+  font-size: 15px;
+  color: var(--text-title)
 }
 
 .discuss-wrapper .discuss-submit {
-  padding: 0px 0px 20px;
-  position: relative
+  position: relative;
+  padding: 0 0 20px
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0
+  inset: 0
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item {
-  height: 100%;
-  width: 100%;
-  background-color: rgba(27,27,27,0.87);
   display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(27,27,27,0.87);
   align-items: center;
   justify-content: center
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item .discuss-dialog-item-inner {
-  border: var(--line);
   padding: 20px;
-  border-radius: 10px;
+  margin: 0 20px;
   background-color: var(--bg-element);
-  margin: 0 20px
+  border: var(--line);
+  border-radius: 10px
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item .discuss-dialog-item-inner .discuss-dialog-title {
-  font-size: 16px;
-  text-align: center;
   padding-bottom: 20px;
-  font-weight: 500
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item .discuss-dialog-item-inner .discuss-dialog-message {
@@ -142,25 +149,25 @@
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item .discuss-dialog-item-inner .discuss-dialog-btns {
-  text-align: center;
+  display: flex;
   padding-bottom: 10px;
   margin-top: 10px;
-  display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap
 }
 
 .discuss-wrapper .discuss-submit .discuss-dialog .discuss-dialog-item .discuss-dialog-item-inner .discuss-dialog-btns button {
+  display: inline-flex;
+  padding: 0 10px;
   margin-top: 10px;
+  margin-left: 10px;
   line-height: 30px;
+  cursor: pointer;
+  border: var(--line);
   border-radius: 5px;
   outline: none;
-  border: var(--line);
-  padding: 0 10px;
-  cursor: pointer;
-  margin-left: 10px;
-  display: inline-flex;
   align-items: center;
   justify-content: center
 }
@@ -178,20 +185,20 @@
 .discuss-wrapper .discuss-submit .discuss-toast {
   position: absolute;
   top: 30px;
+  right: 0;
+  left: 0;
+  display: flex;
   margin: auto;
-  left: 0px;
-  right: 0px;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-direction: column
 }
 
 .discuss-wrapper .discuss-submit .discuss-toast .discuss-toast-item {
-  background-color: #067b06;
   padding: 5px 10px;
-  border-radius: 10px;
-  margin-top: 20px
+  margin-top: 20px;
+  background-color: #067b06;
+  border-radius: 10px
 }
 
 .discuss-wrapper .discuss-submit .discuss-toast .discuss-toast-item:first-child {
@@ -207,73 +214,73 @@
 }
 
 .discuss-wrapper .discuss-submit .input-title {
-  color: var(--text-title) !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
   font-size: 16px !important;
   font-weight: 500 !important;
-  padding-bottom: 10px;
-  border-bottom: var(--line);
-  padding-left: 20px;
-  padding-top: 10px
+  color: var(--text-title) !important;
+  border-bottom: var(--line)
 }
 
 .discuss-wrapper .discuss-submit .input-subtitle {
+  padding: 20px;
+  padding-bottom: 0;
   font-size: 14px !important;
   font-weight: 400 !important;
-  color: var(--themeColorLevel2) !important;
-  padding: 20px;
-  padding-bottom: 0
+  color: var(--themeColorLevel2) !important
 }
 
 .discuss-wrapper .discuss-submit .input-name {
-  border: var(--line);
-  border-radius: 5px;
+  margin: 0 20px;
+  margin-top: 20px;
   overflow: hidden;
   background-color: var(--bg-color);
-  margin: 0 20px;
-  margin-top: 20px
+  border: var(--line);
+  border-radius: 5px
 }
 
 .discuss-wrapper .discuss-submit .input-name input {
   width: 100%;
-  line-height: 30px;
-  text-indent: 10px;
-  outline: none;
   padding: 0;
-  border: 0;
+  line-height: 30px;
+  color: var(--text-title);
+  text-indent: 10px;
   background-color: transparent;
-  color: var(--text-title)
+  border: 0;
+  outline: none
 }
 
 .discuss-wrapper .discuss-submit .input-comment {
-  margin-top: 20px;
-  border: var(--line);
-  border-radius: 5px;
-  overflow: hidden;
-  padding: 10px;
-  background-color: var(--bg-color);
   height: 120px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-right: 20px;
   margin-left: 20px;
-  margin-right: 20px
+  overflow: hidden;
+  background-color: var(--bg-color);
+  border: var(--line);
+  border-radius: 5px
 }
 
 .discuss-wrapper .discuss-submit .input-comment textarea {
   width: 100%;
-  line-height: 22px;
-  outline: none;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  color: var(--text-title);
   height: 100%;
+  padding: 0;
+  line-height: 22px;
+  color: var(--text-title);
+  background-color: transparent;
+  border: 0;
+  outline: none;
   resize: none;
 }
 
 .discuss-wrapper .discuss-submit .input-submit {
-  margin-top: 20px;
+  position: relative;
   display: flex;
-  align-items: center;
   padding: 0 20px;
-  position: relative
+  margin-top: 20px;
+  align-items: center
 }
 
 .discuss-wrapper .discuss-submit .input-submit .flex-empty {
@@ -282,9 +289,9 @@
 
 .discuss-wrapper .discuss-submit .input-submit button {
   min-width: 120px;
-  text-align: center;
   font-size: 16px;
-  font-weight: 400
+  font-weight: 400;
+  text-align: center
 }
 
 .discuss-wrapper .discuss-submit .input-submit button:last-child {
@@ -302,12 +309,12 @@
 
 .discuss-wrapper .discuss-submit .input-msg {
   display: flex;
-  justify-content: right;
-  align-items: center;
-  color: orange;
-  font-size: 12px;
+  padding: 0 20px;
   margin-top: 10px;
-  padding: 0 20px
+  font-size: 12px;
+  color: orange;
+  justify-content: right;
+  align-items: center
 }
 
 .discuss-wrapper .discuss-submit .input-msg .icon-loading {
@@ -317,12 +324,12 @@
 }
 
 .discuss-wrapper .discuss-title-area .dt-title {
+  padding: 10px 0 10px 20px;
+  padding-left: 20px;
   font-size: 16px;
   font-weight: 500;
   color: var(--text-title);
-  padding-left: 20px;
-  border-top: var(--line);
-  padding: 10px 0px 10px 20px
+  border-top: var(--line)
 }
 
 .discuss-wrapper .discuss-list {
@@ -330,8 +337,8 @@
 }
 
 .discuss-wrapper .discuss-list .discuss-item {
-  border-bottom: var(--line);
   padding: 20px;
+  border-bottom: var(--line);
 }
 
 .discuss-wrapper .discuss-list .discuss-item:first-child {
@@ -350,8 +357,8 @@
 }
 
 .discuss-wrapper .discuss-list .discuss-item .chain-logo svg {
-  height: 14px !important;
-  width: 14px !important
+  width: 14px !important;
+  height: 14px !important
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-chain {
@@ -364,21 +371,21 @@
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-chain .discuss-from {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  margin-right: 20px;
   color: var(--text-level1);
-  margin-right: 20px
+  flex-wrap: wrap;
+  align-items: center
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-chain .discuss-from svg {
-  height: 14px !important;
   width: 14px !important;
+  height: 14px !important;
   margin-right: 5px
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-meta {
-  padding-bottom: 10px;
   display: flex;
+  padding-bottom: 10px;
   align-items: center
 }
 
@@ -389,26 +396,26 @@
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-meta .discuss-time {
+  margin-left: 10px;
   font-size: 12px;
-  color: #b4b4b4;
-  margin-left: 10px
+  color: #b4b4b4
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-txhash {
-  color: var(--themeColor);
-  font-size: 12px;
-  background-color: var(--themeColorLevel1);
   display: inline-block;
   padding: 3px 10px;
+  font-size: 12px;
+  color: var(--themeColor);
+  background-color: var(--themeColorLevel1);
   border-radius: 5px
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-children {
-  border-top: var(--line);
+  padding-top: 10px;
   padding-left: 20px;
-  font-size: 13px;
   margin-top: 10px;
-  padding-top: 10px
+  font-size: 13px;
+  border-top: var(--line)
 }
 
 .discuss-wrapper .discuss-list .discuss-item .discuss-children .discuss-user {
@@ -416,14 +423,15 @@
 }
 
 .discuss-wrapper .discuss-list .discuss-empty {
+  padding: 40px 20px 20px;
   text-align: center;
-  padding: 40px 20px 20px
+  border-top: var(--line);
 }
 
 .discuss-wrapper .discuss-list .discuss-empty svg {
-  margin: auto;
   width: 80px;
-  height: 80px
+  height: 80px;
+  margin: auto
 }
 
 .discuss-wrapper .discuss-list .discuss-empty svg path {
@@ -437,49 +445,54 @@
 }
 
 .discuss-wrapper .discuss-logo-area {
-  border-top: var(--line);
-  text-align: left;
   padding: 8px 0;
   padding: 0 20px;
-}
-.discuss-wrapper .discuss-logo-area .logo-stage{
   text-align: left;
+  border-top: var(--line);
+}
+
+.discuss-wrapper .discuss-logo-area .logo-stage{
   display: flex;
+  text-align: left;
   justify-content: space-between;
   align-items: center;
 }
+
 .discuss-wrapper .discuss-logo-area .logo-stage img{
   height: 30px;
 }
+
 .discuss-wrapper .discuss-logo-area .want-tip {
+  display: flex;
   font-size: 12px;
   color: var(--text-level2);
-  display: flex;
   align-items: center;
 }
+
 .discuss-wrapper .discuss-logo-area .want-tip .chain-logo {
-  height: 16px;
   display: block;
-  margin-left: 4px;
+  height: 16px;
   padding: 2px;
+  margin-left: 4px;
 }
+
 .discuss-wrapper .discuss-logo-area .want-tip .chain-logo svg{
-  height: 100% !important;
   width: 100% !important;
+  height: 100% !important;
 }
 
 .code-content {
-  margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  margin-left: auto
 }
 
 .code-content,.discuss-wrapper {
   overflow-x: auto;
-  color: var(--text-title);
-  word-break: break-word;
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.6
+  line-height: 1.6;
+  color: var(--text-title);
+  word-break: break-word
 }
 
 .code-content .s-notice.s-notice__info,.discuss-wrapper .s-notice.s-notice__info {
@@ -511,34 +524,34 @@
 }
 
 .code-content p,.discuss-wrapper p {
-  color: var(--text-title);
-  word-break: break-word;
   font-size: 15px;
   font-weight: 400;
-  line-height: 1.6
+  line-height: 1.6;
+  color: var(--text-title);
+  word-break: break-word
 }
 
 .code-content img,.discuss-wrapper img {
-  max-width: 100% !important;
-  padding: 0px 0;
-  text-align: center;
   display: block;
+  max-width: 100% !important;
+  padding: 0;
   margin: auto;
+  text-align: center;
   background: white
 }
 
 .code-content pre,.discuss-wrapper pre {
-  margin-bottom: 20px;
   padding: 15px;
-  font-size: 13px;
-  word-wrap: normal;
-  word-break: break-word;
-  white-space: pre;
+  margin-bottom: 20px;
   overflow: auto;
-  border-radius: 0;
-  background: #2d2d2d;
+  font-size: 13px;
   color: #e6e6e6 !important;
-  border: 0px solid #ccc;
+  word-break: break-word;
+  word-wrap: normal;
+  white-space: pre;
+  background: #2d2d2d;
+  border: 0 solid #ccc;
+  border-radius: 0;
   border-radius: 4px
 }
 
@@ -548,27 +561,27 @@
 
 .code-content blockquote,.discuss-wrapper blockquote {
   padding: 20px;
+  margin: 0 0 20px;
   margin-bottom: 25px;
-  background-color: #f7f7f7;
-  border-left: 6px solid #b4b4b4;
-  word-break: break-word;
   font-size: 16px;
   font-weight: 400;
   line-height: 30px;
-  margin: 0 0 20px;
-  color: #272727
+  color: #272727;
+  word-break: break-word;
+  background-color: #f7f7f7;
+  border-left: 6px solid #b4b4b4
 }
 
 .code-content code,.discuss-wrapper code {
-  border: none;
-  font-size: 12px;
+  padding: 0 3px;
   font-family: Menlo, Monaco, Consolas, Courier New, monospace;
-  word-wrap: normal;
-  word-break: break-word;
+  font-size: 12px;
   font-weight: 400;
-  background: #2d2d2d;
   color: #e6e6e6 !important;
-  padding: 0 3px
+  word-break: break-word;
+  word-wrap: normal;
+  background: #2d2d2d;
+  border: none
 }
 
 .code-content hr,.discuss-wrapper hr {
